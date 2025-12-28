@@ -1,0 +1,154 @@
+.custom-footer {
+  background: rgba(0, 0, 0, 0.85);
+  color: var(--black-crystal-text);
+  padding: 60px 80px 40px 80px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--black-crystal-border);
+  position: relative;
+  z-index: 1001;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 60px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-right: 40px;
+}
+
+.footer-section:last-child {
+  margin-right: 0;
+}
+
+.footer-brand {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--black-crystal-text);
+}
+
+.footer-description {
+  color: var(--black-crystal-text-secondary);
+  line-height: 1.6;
+  font-size: 14px;
+  margin: 0;
+}
+
+.footer-heading {
+  margin: 0 0 25px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--black-crystal-text);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--black-crystal-text-secondary);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--ifm-color-primary);
+}
+
+.footer-divider {
+  border-top: 1px solid var(--black-crystal-border);
+  margin-bottom: 30px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-legal a {
+  color: var(--black-crystal-text);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: var(--ifm-color-primary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-social a {
+  color: var(--black-crystal-text);
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: var(--ifm-color-primary);
+}
+
+.footer-copyright {
+  margin-top: 30px;
+}
+
+.footer-copyright p {
+  color: var(--black-crystal-text-secondary);
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .custom-footer {
+    padding: 40px 20px;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+
+  .footer-section {
+    min-width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .footer-legal {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

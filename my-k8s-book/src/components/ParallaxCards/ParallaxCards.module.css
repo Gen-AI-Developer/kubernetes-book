@@ -1,0 +1,243 @@
+/* Parallax Cards Styles - 3D Flip Cards with Starfield Background */
+.content {
+  background: #000000; /* Pure black background */
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding: 2rem 0;
+}
+
+/* Add starfield animation background */
+.content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, white, transparent),
+    radial-gradient(2px 2px at 60px 70px, white, transparent),
+    radial-gradient(1px 1px at 50px 50px, white, transparent),
+    radial-gradient(1px 1px at 130px 80px, white, transparent),
+    radial-gradient(2px 2px at 90px 10px, white, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: stars 200s linear infinite;
+  opacity: 0.8;
+}
+
+@keyframes stars {
+  from { transform: translateY(0); }
+  to { transform: translateY(-2000px); }
+}
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 80rem;
+  position: relative;
+  z-index: 1; /* Ensure cards appear above the starfield */
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-family: var(--ifm-font-family-base);
+  font-weight: var(--ifm-heading-font-weight);
+  color: white; /* Changed to white for better contrast with dark background */
+  text-align: center;
+  margin: 2rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+.cols {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  position: relative;
+  z-index: 2;
+}
+
+.col {
+  width: 25%;
+  min-width: 250px;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 25em; /* 400px */
+  perspective: 150em; /* for 3D effect */
+  box-shadow: 1em 1em 2em rgba(0,0,0,.2);
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: all 0.6s ease;
+  transform-style: preserve-3d;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.front {
+  background: rgba(255, 255, 255, 0.1); /* 10% transparent white */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform: rotateY(0deg);
+}
+
+.back {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+}
+
+.container:hover .front {
+  transform: rotateY(-180deg);
+}
+
+.container:hover .back {
+  transform: rotateY(0deg);
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.cardIcon {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin: auto;
+  display: block;
+  padding: 2em 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3)); /* Add subtle shadow for visibility */
+  position: relative;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9); /* Light background behind SVG */
+  border-radius: 50%;
+  padding: 1em;
+}
+
+.back .info p {
+  font-size: 1.2em;
+  color: white;
+  padding: 0 1rem;
+}
+
+/* Gradient backgrounds for back sides */
+.gradientKubernetes {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(126, 213, 111, 0.8),
+    rgba(40, 180, 133, 0.8)
+  );
+}
+
+.gradientDocker {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(41, 152, 255, 0.8),
+    rgba(86, 67, 250, 0.8)
+  );
+}
+
+.gradientHelm {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 185, 0, 0.8),
+    rgba(255, 119, 48, 0.8)
+  );
+}
+
+.gradientCICD {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(231, 76, 60, 0.8),
+    rgba(192, 57, 43, 0.8)
+  );
+}
+
+.gradientArgoCD {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(155, 89, 182, 0.8),
+    rgba(142, 68, 173, 0.8)
+  );
+}
+
+.gradientMonitoring {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(26, 188, 156, 0.8),
+    rgba(22, 160, 133, 0.8)
+  );
+}
+
+.gradientSecurity {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(243, 156, 18, 0.8),
+    rgba(211, 84, 0, 0.8)
+  );
+}
+
+.gradientNetworking {
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(52, 73, 94, 0.8),
+    rgba(44, 62, 80, 0.8)
+  );
+}
+
+@media screen and (max-width: 64rem) {
+  .col {
+    width: calc(33.333333% - 2rem);
+  }
+}
+
+@media screen and (max-width: 48rem) {
+  .col {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media screen and (max-width: 32rem) {
+  .col {
+    width: 100%;
+    margin: 0 0 2rem 0;
+  }
+}

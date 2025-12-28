@@ -1,0 +1,191 @@
+# API Contract: Kubernetes Textbook Service
+
+## Overview
+This document describes the API contracts for the Kubernetes for Absolute Beginners textbook website. Since this is a static site, most "API" functionality will be implemented through client-side JavaScript and static file serving, but we define the interfaces for consistency.
+
+## Base URL
+```
+https://k8s-textbook.example.com
+```
+*Note: For static sites, this represents the base path where the site is deployed.*
+
+## Endpoints
+
+### 1. Get Chapter Content
+**GET** `/api/chapters/{chapterId}`
+
+Retrieves the content of a specific chapter.
+
+#### Parameters
+- `chapterId` (path, required): The unique identifier of the chapter to retrieve
+  - Example: `"chapter1-history"`
+
+#### Response
+- Status: `200 OK`
+- Content-Type: `application/json`
+- Body:
+```json
+{
+  "id": "chapter1-history",
+  "title": "History of Cloud Native Applications",
+  "content": "# History of Cloud Native Applications\n\nThe evolution from monolithic...",
+  "order": 1,
+  "wordCount": 1500,
+  "estimatedReadingTime": 6,
+  "language": "en",
+  "relatedChapters": ["chapter2-what-why"]
+}
+```
+
+#### Error Responses
+- `404 Not Found`: If the chapter ID does not exist
+
+### 2. Get All Chapters List
+**GET** `/api/chapters`
+
+Retrieves a list of all available chapters with basic information.
+
+#### Response
+- Status: `200 OK`
+- Content-Type: `application/json`
+- Body:
+```json
+[
+  {
+    "id": "intro",
+    "title": "Introduction to Kubernetes Textbook",
+    "order": 0,
+    "estimatedReadingTime": 2,
+    "language": "en"
+  },
+  {
+    "id": "chapter1-history",
+    "title": "History of Cloud Native Applications",
+    "order": 1,
+    "estimatedReadingTime": 6,
+    "language": "en"
+  },
+  {
+    "id": "chapter2-what-why",
+    "title": "What, Why, Need, and How of Kubernetes",
+    "order": 2,
+    "estimatedReadingTime": 8,
+    "language": "en"
+  }
+  // ... additional chapters
+]
+```
+
+### 3. Update User Progress
+**POST** `/api/users/progress`
+
+Updates the user's reading progress and preferences.
+
+#### Request
+- Content-Type: `application/json`
+- Body:
+```json
+{
+  "userId": "user-12345",
+  "currentChapter": "chapter2-what-why",
+  "progress": 33,
+  "preferredLanguage": "en"
+}
+```
+
+#### Response
+- Status: `200 OK`
+- Content-Type: `application/json`
+- Body:
+```json
+{
+  "status": "success",
+  "message": "Progress updated successfully",
+  "updatedFields": ["currentChapter", "progress", "preferredLanguage"]
+}
+```
+
+#### Error Responses
+- `400 Bad Request`: If the request body is malformed
+- `404 Not Found`: If the user ID does not exist
+
+### 4. Get User Progress
+**GET** `/api/users/{userId}/progress`
+
+Retrieves the user's current progress and preferences.
+
+#### Parameters
+- `userId` (path, required): The unique identifier of the user
+  - Example: `"user-12345"`
+
+#### Response
+- Status: `200 OK`
+- Content-Type: `application/json`
+- Body:
+```json
+{
+  "userId": "user-12345",
+  "currentChapter": "chapter2-what-why",
+  "progress": 33,
+  "preferredLanguage": "en",
+  "lastAccessed": "2023-10-15T10:30:00Z",
+  "completedChapters": ["intro", "chapter1-history"]
+}
+```
+
+#### Error Responses
+- `404 Not Found`: If the user ID does not exist
+
+### 5. Submit Quiz Answer
+**POST** `/api/quizzes/{chapterId}/submit`
+
+Submits a user's answer to a quiz question for a specific chapter.
+
+#### Parameters
+- `chapterId` (path, required): The chapter ID for the quiz
+  - Example: `"chapter3-setup"`
+
+#### Request
+- Content-Type: `application/json`
+- Body:
+```json
+{
+  "userId": "user-12345",
+  "questionId": "q1",
+  "selectedOption": "b",
+  "timestamp": "2023-10-15T11:00:00Z"
+}
+```
+
+#### Response
+- Status: `200 OK`
+- Content-Type: `application/json`
+- Body:
+```json
+{
+  "questionId": "q1",
+  "isCorrect": true,
+  "correctOption": "b",
+  "explanation": "This is why option b is correct..."
+}
+```
+
+#### Error Responses
+- `400 Bad Request`: If the answer is malformed
+- `404 Not Found`: If the chapter or question doesn't exist
+
+## Error Response Format
+All error responses follow this format:
+
+```json
+{
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "Human-readable error message",
+    "details": "Additional details about the error"
+  }
+}
+```
+
+## Authentication
+For static sites without server-side authentication, these endpoints would be simulated using client-side storage (localStorage, sessionStorage) or optional third-party authentication if needed for progress tracking.

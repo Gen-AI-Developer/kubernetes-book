@@ -1,0 +1,46 @@
+# Blog tags for Kubernetes and Cloud Native topics
+
+kubernetes:
+  label: 'Kubernetes'
+  permalink: '/tags/kubernetes'
+  description: 'Content related to Kubernetes orchestration platform'
+
+cncf:
+  label: 'CNCF'
+  permalink: '/tags/cncf'
+  description: 'Content related to Cloud Native Computing Foundation'
+
+cloud-native:
+  label: 'Cloud Native'
+  permalink: '/tags/cloud-native'
+  description: 'Content related to cloud native technologies'
+
+containers:
+  label: 'Containers'
+  permalink: '/tags/containers'
+  description: 'Content about containerization technologies'
+
+devops:
+  label: 'DevOps'
+  permalink: '/tags/devops'
+  description: 'Content about DevOps practices and tools'
+
+microservices:
+  label: 'Microservices'
+  permalink: '/tags/microservices'
+  description: 'Content about microservices architecture'
+
+docker:
+  label: 'Docker'
+  permalink: '/tags/docker'
+  description: 'Content about Docker containerization platform'
+
+security:
+  label: 'Security'
+  permalink: '/tags/security'
+  description: 'Content about security best practices'
+
+ecosystem:
+  label: 'Ecosystem'
+  permalink: '/tags/ecosystem'
+  description: 'Content about technology ecosystems'

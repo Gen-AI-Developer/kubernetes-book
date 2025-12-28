@@ -1,0 +1,161 @@
+/* Starry Background with Milkyway Galaxy Effect */
+
+.starry-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  z-index: -1000; /* Ensure it's behind everything */
+  pointer-events: none; /* Allow clicks to pass through to content */
+}
+
+/* Blurred background for docs and blog pages */
+.starry-background.blurred-background {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Milkyway Galaxy Background */
+.milkyway-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at bottom, #1b275d 0%, #0c1445 60%, #090e2c 100%);
+  opacity: 0.9; /* Reduced transparency */
+  z-index: -100;
+}
+
+/* Milkyway Arms */
+.milkyway-arms {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(100, 150, 255, 0.3) 0%, transparent 20%),
+    radial-gradient(ellipse at 80% 70%, rgba(100, 150, 255, 0.3) 0%, transparent 20%),
+    radial-gradient(ellipse at 40% 80%, rgba(150, 100, 255, 0.2) 0%, transparent 25%),
+    radial-gradient(ellipse at 60% 20%, rgba(150, 100, 255, 0.2) 0%, transparent 25%);
+  opacity: 0.8; /* Reduced transparency */
+  z-index: -90;
+  animation: rotateMilkyway 200s linear infinite;
+}
+
+/* Stars */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -80;
+}
+
+.star {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: twinkle var(--duration, 3s) infinite ease-in-out;
+}
+
+/* Different sizes of stars */
+.star.small {
+  width: 1px;
+  height: 1px;
+}
+
+.star.medium {
+  width: 2px;
+  height: 2px;
+}
+
+.star.large {
+  width: 3px;
+  height: 3px;
+}
+
+/* Comets */
+.comet {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #fff, transparent);
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: shoot var(--duration, 5s) linear infinite;
+  z-index: -70;
+}
+
+/* Animations */
+@keyframes rotateMilkyway {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(0.8);
+  }
+}
+
+@keyframes shoot {
+  0% {
+    width: 0;
+    opacity: 0;
+    transform: translateX(var(--start-x, 0)) translateY(var(--start-y, 0));
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    width: 100px;
+    opacity: 0;
+    transform: translateX(var(--end-x, 100px)) translateY(var(--end-y, 100px));
+  }
+}
+
+/* Hero Banner with transparent background */
+.heroBanner {
+  background: transparent !important;
+  backdrop-filter: blur(5px);
+  padding: 4rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+/* Ensure content stays on top of the background */
+main {
+  position: relative;
+  z-index: 10;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 2rem;
+  }
+}

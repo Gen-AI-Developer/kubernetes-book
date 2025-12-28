@@ -240,6 +240,18 @@ With multiple developers:
 
 ---
 
+## Constitution Alignment
+
+All tasks must align with the Kubernetes for Absolute Beginners Constitution, ensuring:
+- Simplicity: Features must be accessible to absolute beginners
+- Accuracy: All technical content must be factually correct and verified
+- Minimalism: Solutions must be lightweight and focused
+- Fast Builds: Implementation must maintain rapid iteration cycles
+- Free-tier Architecture: Solutions must work within free-tier constraints
+- User Experience Excellence: All features must enhance the learning experience
+
+---
+
 ## Notes
 
 - [P] tasks = different files, no dependencies

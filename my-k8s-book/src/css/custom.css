@@ -1,0 +1,160 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+/* You can override the default Docusaurus variables here. */
+:root {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: rgb(33, 175, 144);
+  --ifm-color-primary-darker: rgb(31, 165, 136);
+  --ifm-color-primary-darkest: rgb(26, 136, 112);
+  --ifm-color-primary-light: rgb(70, 203, 174);
+  --ifm-color-primary-lighter: rgb(102, 212, 189);
+  --ifm-color-primary-lightest: rgb(146, 224, 208);
+  --ifm-code-font-size: 95%;
+
+  /* Black Crystal Transparent Theme Variables */
+  --black-crystal-bg: rgba(0, 0, 0, 0.85);
+  --black-crystal-bg-light: rgba(0, 0, 0, 0.7);
+  --black-crystal-bg-lighter: rgba(0, 0, 0, 0.5);
+  --black-crystal-border: rgba(255, 255, 255, 0.1);
+  --black-crystal-text: rgba(255, 255, 255, 0.9);
+  --black-crystal-text-secondary: rgba(255, 255, 255, 0.7);
+  --black-crystal-glass-backdrop: blur(10px);
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Black Crystal Transparent Theme Styles */
+html[data-theme='dark'] {
+  --ifm-background-color: var(--black-crystal-bg);
+  --ifm-background-surface-color: var(--black-crystal-bg-light);
+  --ifm-navbar-background-color: var(--black-crystal-bg-light);
+  --ifm-footer-background-color: var(--black-crystal-bg);
+  --ifm-menu-color: var(--black-crystal-text);
+  --ifm-menu-color-active: var(--ifm-color-primary);
+  --ifm-menu-color-background-active: var(--black-crystal-bg-lighter);
+  --ifm-global-shadow: 0 1px 2px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Glass-morphism effect for key components */
+.navbar {
+  backdrop-filter: var(--black-crystal-glass-backdrop);
+  -webkit-backdrop-filter: var(--black-crystal-glass-backdrop);
+  border-bottom: 1px solid var(--black-crystal-border);
+}
+
+.menu {
+  backdrop-filter: var(--black-crystal-glass-backdrop);
+  -webkit-backdrop-filter: var(--black-crystal-glass-backdrop);
+}
+
+.dropdown__menu {
+  backdrop-filter: var(--black-crystal-glass-backdrop);
+  -webkit-backdrop-filter: var(--black-crystal-glass-backdrop);
+  background: var(--black-crystal-bg-lighter);
+  border: 1px solid var(--black-crystal-border);
+}
+
+.table-of-contents {
+  backdrop-filter: var(--black-crystal-glass-backdrop);
+  -webkit-backdrop-filter: var(--black-crystal-glass-backdrop);
+  background: var(--black-crystal-bg-lighter);
+  border: 1px solid var(--black-crystal-border);
+  border-radius: 8px;
+}
+
+/* Card and container styles */
+.card {
+  background: var(--black-crystal-bg-lighter);
+  backdrop-filter: var(--black-crystal-glass-backdrop);
+  -webkit-backdrop-filter: var(--black-crystal-glass-backdrop);
+  border: 1px solid var(--black-crystal-border);
+  border-radius: 8px;
+}
+
+/* Code block styling */
+.code-block {
+  background: var(--black-crystal-bg-lighter) !important;
+  backdrop-filter: var(--black-crystal-glass-backdrop);
+  -webkit-backdrop-filter: var(--black-crystal-glass-backdrop);
+  border: 1px solid var(--black-crystal-border);
+  border-radius: 8px;
+}
+
+/* Button styling */
+.button {
+  background: var(--black-crystal-bg-lighter);
+  border: 1px solid var(--black-crystal-border);
+  color: var(--black-crystal-text);
+}
+
+.button:hover {
+  background: var(--black-crystal-bg-light);
+  color: var(--ifm-color-primary);
+}
+
+/* Text colors */
+.markdown h1,
+.markdown h2,
+.markdown h3,
+.markdown h4,
+.markdown h5,
+.markdown h6 {
+  color: var(--black-crystal-text);
+}
+
+.markdown p,
+.markdown li,
+.markdown td,
+.markdown th {
+  color: var(--black-crystal-text-secondary);
+}
+
+/* Custom styles for textbook */
+.textbook-content {
+  max-width: 800px;
+  margin: 0 auto;
+  backdrop-filter: var(--black-crystal-glass-backdrop);
+  -webkit-backdrop-filter: var(--black-crystal-glass-backdrop);
+  background: var(--black-crystal-bg-lighter);
+  border-radius: 8px;
+  padding: 1.5rem;
+  border: 1px solid var(--black-crystal-border);
+}
+
+.chapter-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--black-crystal-border);
+  backdrop-filter: var(--black-crystal-glass-backdrop);
+  -webkit-backdrop-filter: var(--black-crystal-glass-backdrop);
+  background: var(--black-crystal-bg-lighter);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.language-toggle {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background: var(--black-crystal-bg-lighter);
+  backdrop-filter: var(--black-crystal-glass-backdrop);
+  -webkit-backdrop-filter: var(--black-crystal-glass-backdrop);
+  border-radius: 4px;
+  text-align: center;
+  border: 1px solid var(--black-crystal-border);
+}

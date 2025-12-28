@@ -1,0 +1,19 @@
+# Authors configuration for Kubernetes blog
+
+k8s-expert:
+  name: Kubernetes Expert
+  title: CNCF Ambassador | Kubernetes Specialist
+  url: https://github.com/k8s-expert
+  image_url: https://github.com/k8s-expert.png
+
+cloud-native-enthusiast:
+  name: Cloud Native Enthusiast
+  title: Cloud Native Computing Foundation Member
+  url: https://github.com/cloud-native-enthusiast
+  image_url: https://github.com/cloud-native-enthusiast.png
+
+devops-engineer:
+  name: DevOps Engineer
+  title: Kubernetes Operator | Infrastructure Specialist
+  url: https://github.com/devops-engineer
+  image_url: https://github.com/devops-engineer.png

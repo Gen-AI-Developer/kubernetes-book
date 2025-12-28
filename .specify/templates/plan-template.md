@@ -31,7 +31,13 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+This plan must align with the Kubernetes for Absolute Beginners Constitution, emphasizing:
+- Simplicity: All technical decisions must prioritize beginner accessibility
+- Accuracy: All implementations must be technically correct and verified
+- Minimalism: Solutions must be lightweight and efficient
+- Fast Builds: Development pipeline must maintain rapid iteration
+- Free-tier Architecture: All technical choices must work within free-tier constraints
+- User Experience Excellence: All features must enhance the learning experience
 
 ## Project Structure
 
